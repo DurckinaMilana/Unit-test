@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "lint": "eslint",
+    "build": "webpack --mode production",
+    "live-server": "live-server dist",
     "test": "jest --coverage"
   },
   "repository": {
