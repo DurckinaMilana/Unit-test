@@ -1,10 +1,14 @@
-import sorting from '../app';
+import playerStatus from '../app';
 
-test('test', () => {
-    const players = [
-        { name: 'маг', health: 25 }, { name: 'лучник', health: 1 }, { name: 'мечник', health: 100 },
-    ];
-    const result = sorting(players);
-    const expected = [{ name: 'мечник', health: 100 }, { name: 'маг', health: 25 }, { name: 'лучник', health: 1 }];
-    expect(result).toEqual(expected);
-});
+test.each([
+
+  [51, { name: 'маг', health: 51 }, 'healthy'],
+  [15, { name: 'маг', health: 15 }, 'wounded'],
+  [14, { name: 'маг', health: 14 }, 'critical'],
+])(
+  ('players level of living  %s'),
+  (_, player, expected) => {
+    const status = playerStatus({ player });
+    expect(status).toBe(expected);
+  },
+);

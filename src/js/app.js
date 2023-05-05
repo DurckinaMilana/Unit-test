@@ -1,14 +1,15 @@
-export default function sorting(players) {
-    const key = 'health';
-    return players.sort((player1, player2) => player2[key] - player1[key]);
+export default function playerStatus({ player }) {
+  if (player.health > 50) {
+    return 'healthy';
   }
-  
-  
-  // players = [
-  //   { name: 'маг', health: 25 },
-  //   { name: 'лучник', health: 1 },
-  //   { name: 'мечник', health: 101 },
-  // ];
-  
-  // console.log(players);
-  // sorting([players]);
+  if (player.health < 15) {
+    return 'critical';
+  }
+  return 'wounded';
+}
+// player = { name: 'маг', health: 20 };
+// player = { name: 'маг', health: 51 };
+// player = { name: 'маг', health: 5 };
+
+// console.log(player);
+// playerStatus({ player });
